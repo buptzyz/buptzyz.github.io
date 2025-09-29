@@ -1,13 +1,13 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>解密强化学习的“北极星”：深入理解RL的目标函数 | 智源之思</title><meta name="author" content="zgca&amp;ruc zyz"><meta name="copyright" content="zgca&amp;ruc zyz"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="在探索强化学习（Reinforcement Learning, RL）的广袤世界时，我们常常会遇到各种复杂的算法和概念。但所有这些算法，无论多么不同，都在追寻同一个目标，遵循同一个“北极星”的指引。这个“北极星”就是RL的目标函数。 今天，我们将深入剖析这个在RL理论中至关重要的核心公式，理解智能体（Agent）学习的真正意义。 首先，让我们请出今天的主角——RL的优化目标函数： $$">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>解密强化学习的“北极星”：深入理解RL的目标函数 | 智源之思</title><meta name="author" content="zgca&amp;ruc zyz"><meta name="copyright" content="zgca&amp;ruc zyz"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="在探索强化学习（Reinforcement Learning, RL）的广袤世界时，我们常常会遇到各种复杂的算法和概念。但所有这些算法，无论多么不同，都在追寻同一个目标，遵循同一个“北极星”的指引。这个“北极星”就是RL的目标函数。 今天，我们将深入剖析这个在RL理论中至关重要的核心公式，理解智能体（Agent）学习的真正意义。 首先，让我们请出今天的主角——RL的优化目标函数： $$ J(\th">
 <meta property="og:type" content="article">
 <meta property="og:title" content="解密强化学习的“北极星”：深入理解RL的目标函数">
 <meta property="og:url" content="https://buptzyz.github.io/2025/09/29/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3RL%E7%9A%84%E7%9B%AE%E6%A0%87%E5%87%BD%E6%95%B0/index.html">
 <meta property="og:site_name" content="智源之思">
-<meta property="og:description" content="在探索强化学习（Reinforcement Learning, RL）的广袤世界时，我们常常会遇到各种复杂的算法和概念。但所有这些算法，无论多么不同，都在追寻同一个目标，遵循同一个“北极星”的指引。这个“北极星”就是RL的目标函数。 今天，我们将深入剖析这个在RL理论中至关重要的核心公式，理解智能体（Agent）学习的真正意义。 首先，让我们请出今天的主角——RL的优化目标函数： $$">
+<meta property="og:description" content="在探索强化学习（Reinforcement Learning, RL）的广袤世界时，我们常常会遇到各种复杂的算法和概念。但所有这些算法，无论多么不同，都在追寻同一个目标，遵循同一个“北极星”的指引。这个“北极星”就是RL的目标函数。 今天，我们将深入剖析这个在RL理论中至关重要的核心公式，理解智能体（Agent）学习的真正意义。 首先，让我们请出今天的主角——RL的优化目标函数： $$ J(\th">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://github.com/buptzyz.png">
 <meta property="article:published_time" content="2025-09-29T13:03:00.000Z">
-<meta property="article:modified_time" content="2025-09-29T13:13:27.828Z">
+<meta property="article:modified_time" content="2025-09-29T13:58:03.442Z">
 <meta property="article:author" content="zgca&amp;ruc zyz">
 <meta property="article:tag" content="强化学习">
 <meta name="twitter:card" content="summary">
@@ -18,7 +18,7 @@
   "url": "https://buptzyz.github.io/2025/09/29/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3RL%E7%9A%84%E7%9B%AE%E6%A0%87%E5%87%BD%E6%95%B0/",
   "image": "https://github.com/buptzyz.png",
   "datePublished": "2025-09-29T13:03:00.000Z",
-  "dateModified": "2025-09-29T13:13:27.828Z",
+  "dateModified": "2025-09-29T13:58:03.442Z",
   "author": [
     {
       "@type": "Person",
@@ -159,141 +159,69 @@
   isHighlightShrink: false,
   isToc: true,
   pageType: 'post'
-}</script><meta name="generator" content="Hexo 8.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://github.com/buptzyz.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">1</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url(https://images.pexels.com/photos/1025469/pexels-photo-1025469.jpeg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">智源之思</span></a><a class="nav-page-title" href="/"><span class="site-name">解密强化学习的“北极星”：深入理解RL的目标函数</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">解密强化学习的“北极星”：深入理解RL的目标函数</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-09-29T13:03:00.000Z" title="发表于 2025-09-29 21:03:00">2025-09-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-09-29T13:13:27.828Z" title="更新于 2025-09-29 21:13:27">2025-09-29</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>在探索强化学习（Reinforcement Learning,
-RL）的广袤世界时，我们常常会遇到各种复杂的算法和概念。但所有这些算法，无论多么不同，都在追寻同一个目标，遵循同一个“北极星”的指引。这个“北极星”就是RL的<strong>目标函数</strong>。</p>
+}</script><meta name="generator" content="Hexo 8.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://github.com/buptzyz.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">1</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url(https://images.pexels.com/photos/1025469/pexels-photo-1025469.jpeg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">智源之思</span></a><a class="nav-page-title" href="/"><span class="site-name">解密强化学习的“北极星”：深入理解RL的目标函数</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">解密强化学习的“北极星”：深入理解RL的目标函数</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-09-29T13:03:00.000Z" title="发表于 2025-09-29 21:03:00">2025-09-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-09-29T13:58:03.442Z" title="更新于 2025-09-29 21:58:03">2025-09-29</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>在探索强化学习（Reinforcement Learning, RL）的广袤世界时，我们常常会遇到各种复杂的算法和概念。但所有这些算法，无论多么不同，都在追寻同一个目标，遵循同一个“北极星”的指引。这个“北极星”就是RL的<strong>目标函数</strong>。</p>
 <p>今天，我们将深入剖析这个在RL理论中至关重要的核心公式，理解智能体（Agent）学习的真正意义。</p>
 <p>首先，让我们请出今天的主角——RL的优化目标函数：</p>
-<p><span class="math display">$$
-J(\theta) = \mathbb{E}_{\tau \sim \pi_\theta} \left[ \sum_{t=1}^{\infty}
-\gamma^{t-1} r(s_t, a_t) \right] = V_{\pi}(s_1) = \sum_{a \in A}
-\pi(a|s_1) Q_{\pi}(s_1, a)
-$$</span></p>
+<p>$$<br>
+J(\theta) = \mathbb{E}<em>{\tau \sim \pi</em>{\theta}} \left[ \sum_{t=1}^{\infty} \gamma^{t-1} r(s_{t}, a_{t}) \right] = V_{\pi}(s_{1}) = \sum_{a \in A} \pi(a|s_{1}) Q_{\pi}(s_{1}, a)<br>
+$$</p>
 <p>这个公式看起来可能有些令人生畏，但别担心，我们将把它拆解成三个逻辑清晰的部分，一步步揭开它的神秘面纱。</p>
-<h2
-id="第一部分定义终极目标最大化期望回报">第一部分：定义终极目标——最大化期望回报</h2>
+<h2 id="第一部分：定义终极目标——最大化期望回报"><a class="header-anchor" href="#第一部分：定义终极目标——最大化期望回报">#</a>第一部分：定义终极目标——最大化期望回报</h2>
 <p>公式的第一部分定义了我们最终要优化的目标是什么：</p>
-<p><span class="math display">$$
-J(\theta) = \mathbb{E}_{\tau \sim \pi_\theta} \left[ \sum_{t=1}^{\infty}
-\gamma^{t-1} r(s_t, a_t) \right]
-$$</span></p>
+<p>$$<br>
+J(\theta) = \mathbb{E}<em>{\tau \sim \pi</em>{\theta}} \left[ \sum_{t=1}^{\infty} \gamma^{t-1} r(s_{t}, a_{t}) \right]<br>
+$$</p>
 <p>这可以理解为对智能体策略“性能”的数学描述。让我们逐一解析其中的符号：</p>
 <ul>
-<li><span class="math inline"><em>J</em>(<em>θ</em>)</span>:
-<strong>目标函数</strong>，也就是我们衡量策略好坏的“分数”。<span
-class="math inline"><em>θ</em></span> 是策略 <span
-class="math inline"><em>π</em></span>
-的参数（例如神经网络的权重），我们的目标就是通过调整 <span
-class="math inline"><em>θ</em></span> 来让 <span
-class="math inline"><em>J</em>(<em>θ</em>)</span> 最大化。</li>
-<li><span class="math inline"><em>π</em><sub><em>θ</em></sub></span>:
-智能体的<strong>策略
-(Policy)</strong>，即智能体的“行动指南”或“大脑”。它根据当前状态 <span
-class="math inline"><em>s</em></span> 决定采取哪个动作 <span
-class="math inline"><em>a</em></span>。</li>
-<li><span
-class="math inline"><em>τ</em> ∼ <em>π</em><sub><em>θ</em></sub></span>:
-<span class="math inline"><em>τ</em></span> 代表一条<strong>轨迹
-(Trajectory)</strong>，也就是智能体与环境从开始到结束交互的全过程记录，形如
-<span
-class="math inline"><em>τ</em> = (<em>s</em><sub>1</sub>, <em>a</em><sub>1</sub>, <em>r</em><sub>1</sub>, <em>s</em><sub>2</sub>, <em>a</em><sub>2</sub>, <em>r</em><sub>2</sub>, …)</span>。下标
-<span
-class="math inline"><em>τ</em> ∼ <em>π</em><sub><em>θ</em></sub></span>
-意味着这条轨迹是遵循策略 <span
-class="math inline"><em>π</em><sub><em>θ</em></sub></span> 产生的。</li>
-<li><span class="math inline">𝔼[⋅]</span>: <strong>期望
-(Expectation)</strong>。由于策略和环境都可能存在随机性，每次“游戏”的轨迹都可能不同。为了客观评价一个策略的好坏，我们不能只看一次表现，而是要计算它在所有可能轨迹下的<strong>平均表现</strong>。</li>
-<li><span class="math inline">$\sum_{t=1}^{\infty} \gamma^{t-1} r(s_t,
-a_t)$</span>: 这是整条轨迹的<strong>折扣累积奖励 (Discounted Cumulative
-Reward)</strong>，也称为<strong>回报 (Return)</strong>。
+<li>$J(\theta)$: <strong>目标函数</strong>，也就是我们衡量策略好坏的“分数”。$\theta$ 是策略 $\pi$ 的参数（例如神经网络的权重），我们的目标就是通过调整 $\theta$ 来让 $J(\theta)$ 最大化。</li>
+<li>$\pi_{\theta}$: 智能体的<strong>策略 (Policy)</strong>，即智能体的“行动指南”或“大脑”。它根据当前状态 $s$ 决定采取哪个动作 $a$。</li>
+<li>$\tau \sim \pi_{\theta}$: $\tau$ 代表一条<strong>轨迹 (Trajectory)</strong>，也就是智能体与环境从开始到结束交互的全过程记录，形如 $\tau = (s_{1}, a_{1}, r_{1}, s_{2}, a_{2}, r_{2}, \dots)$。下标 $\tau \sim \pi_{\theta}$ 意味着这条轨迹是遵循策略 $\pi_{\theta}$ 产生的。</li>
+<li>$\mathbb{E}[\cdot]$: <strong>期望 (Expectation)</strong>。由于策略和环境都可能存在随机性，每次“游戏”的轨迹都可能不同。为了客观评价一个策略的好坏，我们不能只看一次表现，而是要计算它在所有可能轨迹下的<strong>平均表现</strong>。</li>
+<li>$\sum_{t=1}^{\infty} \gamma^{t-1} r(s_{t}, a_{t})$: 这是整条轨迹的<strong>折扣累积奖励 (Discounted Cumulative Reward)</strong>，也称为<strong>回报 (Return)</strong>。
 <ul>
-<li><span
-class="math inline"><em>r</em>(<em>s</em><sub><em>t</em></sub>, <em>a</em><sub><em>t</em></sub>)</span>
-是在 <span class="math inline"><em>t</em></span>
-时刻获得的<strong>即时奖励</strong>。</li>
-<li><span class="math inline"><em>γ</em></span>
-是<strong>折扣因子</strong> (0 &lt; <span
-class="math inline"><em>γ</em></span> ≤
-1)，它决定了我们对未来奖励的重视程度。<span
-class="math inline"><em>γ</em></span>
-越小，智能体越“短视”，只关心眼前利益；<span
-class="math inline"><em>γ</em></span>
-越大，智能体越有“远见”，会为了长远目标牺牲短期利益。</li>
-</ul></li>
+<li>$r(s_{t}, a_{t})$ 是在 $t$ 时刻获得的<strong>即时奖励</strong>。</li>
+<li>$\gamma$ 是<strong>折扣因子</strong> (0 &lt; $\gamma$ ≤ 1)，它决定了我们对未来奖励的重视程度。$\gamma$ 越小，智能体越“短视”，只关心眼前利益；$\gamma$ 越大，智能体越有“远见”，会为了长远目标牺牲短期利益。</li>
 </ul>
-<p><strong>一句话总结</strong>：RL的目标是找到一个最优策略 <span
-class="math inline"><em>π</em><sub><em>θ</em><sup>*</sup></sub></span>，使得在该策略下与环境交互时，能够获得的<strong>平均总回报</strong>最大化。</p>
-<h2
-id="第二部分从目标到价值与v函数的关联">第二部分：从“目标”到“价值”——与V函数的关联</h2>
+</li>
+</ul>
+<p><strong>一句话总结</strong>：RL的目标是找到一个最优策略 $\pi_{\theta^{*}}$，使得在该策略下与环境交互时，能够获得的<strong>平均总回报</strong>最大化。</p>
+<h2 id="第二部分：从“目标”到“价值”——与V函数的关联"><a class="header-anchor" href="#第二部分：从“目标”到“价值”——与V函数的关联">#</a>第二部分：从“目标”到“价值”——与V函数的关联</h2>
 <p>公式的第二部分将这个宏观的目标与RL中一个我们更熟悉的概念联系起来：</p>
-<p><span
-class="math display"><em>J</em>(<em>θ</em>) = <em>V</em><sub><em>π</em></sub>(<em>s</em><sub>1</sub>)</span></p>
+<p>$$<br>
+J(\theta) = V_{\pi}(s_{1})<br>
+$$</p>
 <ul>
-<li><span
-class="math inline"><em>V</em><sub><em>π</em></sub>(<em>s</em>)</span>:
-<strong>状态价值函数 (State-Value
-Function)</strong>。它评估的是，从某个状态 <span
-class="math inline"><em>s</em></span> 出发，如果接下来一直遵循策略 <span
-class="math inline"><em>π</em></span>，未来能获得的期望回报是多少。它衡量了一个状态的“长期潜力”或“好坏程度”。</li>
-<li><span class="math inline"><em>s</em><sub>1</sub></span>:
-特指任务的<strong>初始状态</strong>。</li>
+<li>$V_{\pi}(s)$: <strong>状态价值函数 (State-Value Function)</strong>。它评估的是，从某个状态 $s$ 出发，如果接下来一直遵循策略 $\pi$，未来能获得的期望回报是多少。它衡量了一个状态的“长期潜力”或“好坏程度”。</li>
+<li>$s_{1}$: 特指任务的<strong>初始状态</strong>。</li>
 </ul>
 <p>这个等式告诉我们一个非常直观的道理：<strong>一个策略的整体好坏，就等于它从起点出发所能创造的长期价值。</strong></p>
-<p>这就像评价一个棋手的开局策略，我们最终看的是这个开局所导向的局面的优劣程度。最大化策略的性能
-<span
-class="math inline"><em>J</em>(<em>θ</em>)</span>，就等同于最大化初始状态的价值
-<span
-class="math inline"><em>V</em><sub><em>π</em></sub>(<em>s</em><sub>1</sub>)</span>。</p>
-<h2
-id="第三部分从状态价值到动作价值与q函数的关联">第三部分：从“状态价值”到“动作价值”——与Q函数的关联</h2>
+<p>这就像评价一个棋手的开局策略，我们最终看的是这个开局所导向的局面的优劣程度。最大化策略的性能 $J(\theta)$，就等同于最大化初始状态的价值 $V_{\pi}(s_{1})$。</p>
+<h2 id="第三部分：从“状态价值”到“动作价值”——与Q函数的关联"><a class="header-anchor" href="#第三部分：从“状态价值”到“动作价值”——与Q函数的关联">#</a>第三部分：从“状态价值”到“动作价值”——与Q函数的关联</h2>
 <p>公式的最后一部分，则进一步将状态的价值分解为具体动作的价值：</p>
-<p><span
-class="math display"><em>V</em><sub><em>π</em></sub>(<em>s</em><sub>1</sub>) = ∑<sub><em>a</em> ∈ <em>A</em></sub><em>π</em>(<em>a</em>|<em>s</em><sub>1</sub>)<em>Q</em><sub><em>π</em></sub>(<em>s</em><sub>1</sub>, <em>a</em>)</span></p>
+<p>$$<br>
+V_{\pi}(s_{1}) = \sum_{a \in A} \pi(a|s_{1}) Q_{\pi}(s_{1}, a)<br>
+$$</p>
 <ul>
-<li><span
-class="math inline"><em>Q</em><sub><em>π</em></sub>(<em>s</em>, <em>a</em>)</span>:
-<strong>动作价值函数 (Action-Value
-Function)</strong>。它评估的是，在状态 <span
-class="math inline"><em>s</em></span> 下，<strong>选择了某个具体的动作
-<span class="math inline"><em>a</em></span></strong>
-之后，再继续遵循策略 <span class="math inline"><em>π</em></span>
-能获得的期望回报。它衡量了一个“状态-动作”对的“长期潜力”。</li>
-<li><span
-class="math inline"><em>π</em>(<em>a</em>|<em>s</em><sub>1</sub>)</span>:
-策略在初始状态 <span class="math inline"><em>s</em><sub>1</sub></span>
-时，选择动作 <span class="math inline"><em>a</em></span> 的概率。</li>
+<li>$Q_{\pi}(s, a)$: <strong>动作价值函数 (Action-Value Function)</strong>。它评估的是，在状态 $s$ 下，<strong>选择了某个具体的动作 $a$</strong> 之后，再继续遵循策略 $\pi$ 能获得的期望回报。它衡量了一个“状态-动作”对的“长期潜力”。</li>
+<li>$\pi(a|s_{1})$: 策略在初始状态 $s_{1}$ 时，选择动作 $a$ 的概率。</li>
 </ul>
-<p>这个等式揭示了 V 函数和 Q
-函数的内在关系：<strong>一个状态的价值，等于从这个状态出发所有可能动作的价值的加权平均，而权重就是策略选择每个动作的概率。</strong></p>
-<p><strong>举个例子</strong>： 假设在初始状态 <span
-class="math inline"><em>s</em><sub>1</sub></span>，你有两个选择： 1.
-动作 <span
-class="math inline"><em>a</em><sub><em>向</em><em>前</em></sub></span>
-(长期价值 <span
-class="math inline"><em>Q</em>(<em>s</em><sub>1</sub>, <em>a</em><sub><em>向</em><em>前</em></sub>) = 10</span>)
-2. 动作 <span
-class="math inline"><em>a</em><sub><em>向</em><em>后</em></sub></span>
-(长期价值 <span
-class="math inline"><em>Q</em>(<em>s</em><sub>1</sub>, <em>a</em><sub><em>向</em><em>后</em></sub>) = −5</span>)</p>
-<p>如果你的策略是 70% 的概率向前，30% 的概率向后，那么当前状态 <span
-class="math inline"><em>s</em><sub>1</sub></span> 的价值就是： <span
-class="math inline"><em>V</em>(<em>s</em><sub>1</sub>) = 0.7 × 10 + 0.3 × (−5) = 7 − 1.5 = 5.5</span></p>
-<h2 id="总结一条贯穿rl的逻辑链">总结：一条贯穿RL的逻辑链</h2>
+<p>这个等式揭示了 V 函数和 Q 函数的内在关系：<strong>一个状态的价值，等于从这个状态出发所有可能动作的价值的加权平均，而权重就是策略选择每个动作的概率。</strong></p>
+<p><strong>举个例子</strong>：<br>
+假设在初始状态 $s_{1}$，你有两个选择：</p>
+<ol>
+<li>动作 $a_{\text{向前}}$ (长期价值 $Q(s_{1}, a_{\text{向前}}) = 10$)</li>
+<li>动作 $a_{\text{向后}}$ (长期价值 $Q(s_{1}, a_{\text{向后}}) = -5$)</li>
+</ol>
+<p>如果你的策略是 70% 的概率向前，30% 的概率向后，那么当前状态 $s_{1}$ 的价值就是：<br>
+$V(s_{1}) = 0.7 \times 10 + 0.3 \times (-5) = 7 - 1.5 = 5.5$</p>
+<h2 id="总结：一条贯穿RL的逻辑链"><a class="header-anchor" href="#总结：一条贯穿RL的逻辑链">#</a>总结：一条贯穿RL的逻辑链</h2>
 <p>现在，让我们把这三部分串起来，回顾这条清晰的逻辑链：</p>
-<ol type="1">
-<li><strong>终极目标</strong>：我们的使命是调整策略参数 <span
-class="math inline"><em>θ</em></span> 来最大化目标函数 <span
-class="math inline"><em>J</em>(<em>θ</em>)</span>。</li>
-<li><strong>目标是什么</strong>：<span
-class="math inline"><em>J</em>(<em>θ</em>)</span>
-被定义为遵循该策略时，智能体能获得的<strong>平均总回报</strong>。</li>
-<li><strong>目标如何衡量</strong>：这个平均总回报，等价于<strong>初始状态的价值
-<span
-class="math inline"><em>V</em><sub><em>π</em></sub>(<em>s</em><sub>1</sub>)</span></strong>。</li>
-<li><strong>价值如何计算</strong>：一个状态的价值，又可以被分解为该状态下所有<strong>动作价值
-<span
-class="math inline"><em>Q</em><sub><em>π</em></sub>(<em>s</em><sub>1</sub>, <em>a</em>)</span>
-的期望</strong>。</li>
+<ol>
+<li><strong>终极目标</strong>：我们的使命是调整策略参数 $\theta$ 来最大化目标函数 $J(\theta)$。</li>
+<li><strong>目标是什么</strong>：$J(\theta)$ 被定义为遵循该策略时，智能体能获得的<strong>平均总回报</strong>。</li>
+<li><strong>目标如何衡量</strong>：这个平均总回报，等价于<strong>初始状态的价值 $V_{\pi}(s_{1})$</strong>。</li>
+<li><strong>价值如何计算</strong>：一个状态的价值，又可以被分解为该状态下所有<strong>动作价值 $Q_{\pi}(s_{1}, a)$ 的期望</strong>。</li>
 </ol>
 <p>这条公式完美地将RL的宏观目标（最大化长期回报）与算法在微观层面需要计算和优化的量（V值和Q值）联系在了一起。它不仅是理论的基石，更是许多现代强化学习算法（如策略梯度、Actor-Critic等）设计的出发点。</p>
 <p>理解了它，你就掌握了解读大部分RL算法设计思想的钥匙。它就是指引我们在强化学习道路上不断前进的“北极星”。</p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://buptzyz.github.io">zgca&amp;ruc zyz</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://buptzyz.github.io/2025/09/29/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3RL%E7%9A%84%E7%9B%AE%E6%A0%87%E5%87%BD%E6%95%B0/">https://buptzyz.github.io/2025/09/29/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3RL%E7%9A%84%E7%9B%AE%E6%A0%87%E5%87%BD%E6%95%B0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://buptzyz.github.io" target="_blank">智源之思</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/">强化学习</a></div><div class="post-share"><div class="social-share" data-image="https://github.com/buptzyz.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2025/09/27/%E9%BC%A0%E9%BC%A0%E7%9A%84%E4%BF%9D%E7%A0%94%E5%A5%87%E5%B9%BB%E4%B9%8B%E6%97%85/" title="鼠鼠的保研奇幻之旅"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">鼠鼠的保研奇幻之旅</div></div><div class="info-2"><div class="info-item-1"> </div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://github.com/buptzyz.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">zgca&amp;ruc zyz</div><div class="author-info-description">专注于人工智能领域的思考。分享技术笔记、科研心得，以及读博路上对生活与世界的观察。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">1</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/buptzyz"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/buptzyz" target="_blank" title="GitHub"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:2486973235@qq.com" target="_blank" title="E-mail"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的数字花园。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86%E5%AE%9A%E4%B9%89%E7%BB%88%E6%9E%81%E7%9B%AE%E6%A0%87%E6%9C%80%E5%A4%A7%E5%8C%96%E6%9C%9F%E6%9C%9B%E5%9B%9E%E6%8A%A5"><span class="toc-number">1.</span> <span class="toc-text">第一部分：定义终极目标——最大化期望回报</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86%E4%BB%8E%E7%9B%AE%E6%A0%87%E5%88%B0%E4%BB%B7%E5%80%BC%E4%B8%8Ev%E5%87%BD%E6%95%B0%E7%9A%84%E5%85%B3%E8%81%94"><span class="toc-number">2.</span> <span class="toc-text">第二部分：从“目标”到“价值”——与V函数的关联</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E9%83%A8%E5%88%86%E4%BB%8E%E7%8A%B6%E6%80%81%E4%BB%B7%E5%80%BC%E5%88%B0%E5%8A%A8%E4%BD%9C%E4%BB%B7%E5%80%BC%E4%B8%8Eq%E5%87%BD%E6%95%B0%E7%9A%84%E5%85%B3%E8%81%94"><span class="toc-number">3.</span> <span class="toc-text">第三部分：从“状态价值”到“动作价值”——与Q函数的关联</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93%E4%B8%80%E6%9D%A1%E8%B4%AF%E7%A9%BFrl%E7%9A%84%E9%80%BB%E8%BE%91%E9%93%BE"><span class="toc-number">4.</span> <span class="toc-text">总结：一条贯穿RL的逻辑链</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/29/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3RL%E7%9A%84%E7%9B%AE%E6%A0%87%E5%87%BD%E6%95%B0/" title="解密强化学习的“北极星”：深入理解RL的目标函数">解密强化学习的“北极星”：深入理解RL的目标函数</a><time datetime="2025-09-29T13:03:00.000Z" title="发表于 2025-09-29 21:03:00">2025-09-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/27/%E9%BC%A0%E9%BC%A0%E7%9A%84%E4%BF%9D%E7%A0%94%E5%A5%87%E5%B9%BB%E4%B9%8B%E6%97%85/" title="鼠鼠的保研奇幻之旅">鼠鼠的保研奇幻之旅</a><time datetime="2025-09-27T10:23:15.000Z" title="发表于 2025-09-27 18:23:15">2025-09-27</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By zgca&ruc zyz</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.0.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.0</a></span></div><div class="footer_custom_text">由 <i class="fas fa-heart"></i> 驱动，奔赴星辰大海</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://buptzyz.github.io">zgca&amp;ruc zyz</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://buptzyz.github.io/2025/09/29/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3RL%E7%9A%84%E7%9B%AE%E6%A0%87%E5%87%BD%E6%95%B0/">https://buptzyz.github.io/2025/09/29/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3RL%E7%9A%84%E7%9B%AE%E6%A0%87%E5%87%BD%E6%95%B0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://buptzyz.github.io" target="_blank">智源之思</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/">强化学习</a></div><div class="post-share"><div class="social-share" data-image="https://github.com/buptzyz.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width no-desc" href="/2025/09/27/%E9%BC%A0%E9%BC%A0%E7%9A%84%E4%BF%9D%E7%A0%94%E5%A5%87%E5%B9%BB%E4%B9%8B%E6%97%85/" title="鼠鼠的保研奇幻之旅"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">鼠鼠的保研奇幻之旅</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://github.com/buptzyz.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">zgca&amp;ruc zyz</div><div class="author-info-description">专注于人工智能领域的思考。分享技术笔记、科研心得，以及读博路上对生活与世界的观察。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">1</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/buptzyz"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/buptzyz" target="_blank" title="GitHub"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:2486973235@qq.com" target="_blank" title="E-mail"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的数字花园。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86%EF%BC%9A%E5%AE%9A%E4%B9%89%E7%BB%88%E6%9E%81%E7%9B%AE%E6%A0%87%E2%80%94%E2%80%94%E6%9C%80%E5%A4%A7%E5%8C%96%E6%9C%9F%E6%9C%9B%E5%9B%9E%E6%8A%A5"><span class="toc-number">1.</span> <span class="toc-text">第一部分：定义终极目标——最大化期望回报</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86%EF%BC%9A%E4%BB%8E%E2%80%9C%E7%9B%AE%E6%A0%87%E2%80%9D%E5%88%B0%E2%80%9C%E4%BB%B7%E5%80%BC%E2%80%9D%E2%80%94%E2%80%94%E4%B8%8EV%E5%87%BD%E6%95%B0%E7%9A%84%E5%85%B3%E8%81%94"><span class="toc-number">2.</span> <span class="toc-text">第二部分：从“目标”到“价值”——与V函数的关联</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E9%83%A8%E5%88%86%EF%BC%9A%E4%BB%8E%E2%80%9C%E7%8A%B6%E6%80%81%E4%BB%B7%E5%80%BC%E2%80%9D%E5%88%B0%E2%80%9C%E5%8A%A8%E4%BD%9C%E4%BB%B7%E5%80%BC%E2%80%9D%E2%80%94%E2%80%94%E4%B8%8EQ%E5%87%BD%E6%95%B0%E7%9A%84%E5%85%B3%E8%81%94"><span class="toc-number">3.</span> <span class="toc-text">第三部分：从“状态价值”到“动作价值”——与Q函数的关联</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A%E4%B8%80%E6%9D%A1%E8%B4%AF%E7%A9%BFRL%E7%9A%84%E9%80%BB%E8%BE%91%E9%93%BE"><span class="toc-number">4.</span> <span class="toc-text">总结：一条贯穿RL的逻辑链</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/29/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3RL%E7%9A%84%E7%9B%AE%E6%A0%87%E5%87%BD%E6%95%B0/" title="解密强化学习的“北极星”：深入理解RL的目标函数">解密强化学习的“北极星”：深入理解RL的目标函数</a><time datetime="2025-09-29T13:03:00.000Z" title="发表于 2025-09-29 21:03:00">2025-09-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/27/%E9%BC%A0%E9%BC%A0%E7%9A%84%E4%BF%9D%E7%A0%94%E5%A5%87%E5%B9%BB%E4%B9%8B%E6%97%85/" title="鼠鼠的保研奇幻之旅">鼠鼠的保研奇幻之旅</a><time datetime="2025-09-27T10:23:15.000Z" title="发表于 2025-09-27 18:23:15">2025-09-27</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By zgca&ruc zyz</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.0.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.0</a></span></div><div class="footer_custom_text">由 <i class="fas fa-heart"></i> 驱动，奔赴星辰大海</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
