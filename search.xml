@@ -8,7 +8,7 @@
       <link href="/2025/09/30/Math-Test/"/>
       <url>/2025/09/30/Math-Test/</url>
       
-        <content type="html"><![CDATA[<p>这是一个数学公式测试页面。</p><h3 id="行内公式"><a href="#行内公式" class="headerlink" title="行内公式"></a>行内公式</h3><p>这是一个行内公式的例子：$E = mc^2$。它应该被嵌入在文本中。</p><h3 id="块级公式"><a href="#块级公式" class="headerlink" title="块级公式"></a>块级公式</h3><p>这是一个块级公式的例子，它应该单独居中显示：</p><script type="math/tex; mode=display">\sum_{i=1}^{n} i = \frac{n(n+1)}{2}</script><p>另一个复杂的例子：</p><script type="math/tex; mode=display">\frac{\partial u}{\partial t} = h^2 \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} + \frac{\partial^2 u}{\partial z^2} \right)</script>]]></content>
+        <content type="html"><![CDATA[<p>这是一个数学公式测试页面。</p><h3 id="行内公式">行内公式</h3><p>这是一个行内公式的例子：<span class="math inline">\(E =mc^2\)</span>。它应该被嵌入在文本中。</p><h3 id="块级公式">块级公式</h3><p>这是一个块级公式的例子，它应该单独居中显示：</p><p><span class="math display">\[\sum_{i=1}^{n} i = \frac{n(n+1)}{2}\]</span></p><p>另一个复杂的例子：</p><p><span class="math display">\[\frac{\partial u}{\partial t} = h^2 \left( \frac{\partial^2 u}{\partialx^2} + \frac{\partial^2 u}{\partial y^2} + \frac{\partial^2 u}{\partialz^2} \right)\]</span></p>]]></content>
       
       
       

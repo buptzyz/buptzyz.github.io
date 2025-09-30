@@ -19,12 +19,10 @@
   <meta name="author" content="zgca&amp;ruc zyz">
   <meta name="keywords" content="zyz, 博士生, 人工智能, 计算机科学与技术, 深度学习, 算法, 科研, 技术博客">
   
-    <meta name="description" content="专注于人工智能领域的思考。分享技术笔记、科研心得，以及读博路上对生活与世界的观察。">
-<meta property="og:type" content="article">
+    <meta property="og:type" content="article">
 <meta property="og:title" content="鼠鼠的保研奇幻之旅">
 <meta property="og:url" content="https://buptzyz.github.io/2025/09/27/%E9%BC%A0%E9%BC%A0%E7%9A%84%E4%BF%9D%E7%A0%94%E5%A5%87%E5%B9%BB%E4%B9%8B%E6%97%85/index.html">
 <meta property="og:site_name" content="智源之思">
-<meta property="og:description" content="专注于人工智能领域的思考。分享技术笔记、科研心得，以及读博路上对生活与世界的观察。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-09-27T10:23:15.000Z">
 <meta property="article:modified_time" content="2025-09-29T16:08:47.143Z">
@@ -45,8 +43,6 @@
   <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
 
 
 
@@ -279,6 +275,7 @@
               <div class="markdown-body">
                 
                 
+
                 
               </div>
             
@@ -434,6 +431,7 @@
 
   
   
+
 
 
 
@@ -627,6 +625,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

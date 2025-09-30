@@ -19,15 +19,15 @@
   <meta name="author" content="zgca&amp;ruc zyz">
   <meta name="keywords" content="zyz, 博士生, 人工智能, 计算机科学与技术, 深度学习, 算法, 科研, 技术博客">
   
-    <meta name="description" content="这是一个数学公式测试页面。 行内公式这是一个行内公式的例子：$E &#x3D; mc^2$。它应该被嵌入在文本中。 块级公式这是一个块级公式的例子，它应该单独居中显示：  \sum_{i&#x3D;1}^{n} i &#x3D; \frac{n(n+1)}{2}另一个复杂的例子：  \frac{\partial u}{\partial t} &#x3D; h^2 \left( \frac{\partial^2 u}{\partial x">
+    <meta name="description" content="这是一个数学公式测试页面。 行内公式 这是一个行内公式的例子：\(E &#x3D; mc^2\)。它应该被嵌入在文本中。 块级公式 这是一个块级公式的例子，它应该单独居中显示： \[ \sum_{i&#x3D;1}^{n} i &#x3D; \frac{n(n+1)}{2} \] 另一个复杂的例子： \[ \frac{\partial u}{\partial t} &#x3D; h^2 \left( \frac{\">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Math Test">
 <meta property="og:url" content="https://buptzyz.github.io/2025/09/30/Math-Test/index.html">
 <meta property="og:site_name" content="智源之思">
-<meta property="og:description" content="这是一个数学公式测试页面。 行内公式这是一个行内公式的例子：$E &#x3D; mc^2$。它应该被嵌入在文本中。 块级公式这是一个块级公式的例子，它应该单独居中显示：  \sum_{i&#x3D;1}^{n} i &#x3D; \frac{n(n+1)}{2}另一个复杂的例子：  \frac{\partial u}{\partial t} &#x3D; h^2 \left( \frac{\partial^2 u}{\partial x">
+<meta property="og:description" content="这是一个数学公式测试页面。 行内公式 这是一个行内公式的例子：\(E &#x3D; mc^2\)。它应该被嵌入在文本中。 块级公式 这是一个块级公式的例子，它应该单独居中显示： \[ \sum_{i&#x3D;1}^{n} i &#x3D; \frac{n(n+1)}{2} \] 另一个复杂的例子： \[ \frac{\partial u}{\partial t} &#x3D; h^2 \left( \frac{\">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-09-30T03:55:00.000Z">
-<meta property="article:modified_time" content="2025-09-30T03:41:02.023Z">
+<meta property="article:modified_time" content="2025-09-30T03:53:19.994Z">
 <meta property="article:author" content="zgca&amp;ruc zyz">
 <meta property="article:tag" content="zyz, 博士生, 人工智能, 计算机科学与技术, 深度学习, 算法, 科研, 技术博客">
 <meta name="twitter:card" content="summary_large_image">
@@ -45,8 +45,6 @@
   <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
 
 
 
@@ -279,12 +277,21 @@
               <div class="markdown-body">
                 
                 <p>这是一个数学公式测试页面。</p>
-<h3 id="行内公式"><a href="#行内公式" class="headerlink" title="行内公式"></a>行内公式</h3><p>这是一个行内公式的例子：$E = mc^2$。它应该被嵌入在文本中。</p>
-<h3 id="块级公式"><a href="#块级公式" class="headerlink" title="块级公式"></a>块级公式</h3><p>这是一个块级公式的例子，它应该单独居中显示：</p>
-<script type="math/tex; mode=display">
-\sum_{i=1}^{n} i = \frac{n(n+1)}{2}</script><p>另一个复杂的例子：</p>
-<script type="math/tex; mode=display">
-\frac{\partial u}{\partial t} = h^2 \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} + \frac{\partial^2 u}{\partial z^2} \right)</script>
+<h3 id="行内公式">行内公式</h3>
+<p>这是一个行内公式的例子：<span class="math inline">\(E =
+mc^2\)</span>。它应该被嵌入在文本中。</p>
+<h3 id="块级公式">块级公式</h3>
+<p>这是一个块级公式的例子，它应该单独居中显示：</p>
+<p><span class="math display">\[
+\sum_{i=1}^{n} i = \frac{n(n+1)}{2}
+\]</span></p>
+<p>另一个复杂的例子：</p>
+<p><span class="math display">\[
+\frac{\partial u}{\partial t} = h^2 \left( \frac{\partial^2 u}{\partial
+x^2} + \frac{\partial^2 u}{\partial y^2} + \frac{\partial^2 u}{\partial
+z^2} \right)
+\]</span></p>
+
                 
               </div>
             
@@ -412,6 +419,7 @@
 
   
   
+
 
 
 
@@ -605,6 +613,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
