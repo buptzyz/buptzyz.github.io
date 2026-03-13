@@ -1,442 +1,433 @@
-
-
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=auto>
-
-
+<html lang="zh-CN" data-default-color-scheme="auto">
 
 <head>
   <meta charset="UTF-8">
 
   <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
   <link rel="icon" href="/img/fluid.png">
-  
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-  
-  <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="zgca&amp;ruc zyz">
-  <meta name="keywords" content="zyz, 博士生, 人工智能, 计算机科学与技术, 深度学习, 算法, 科研, 技术博客">
-  
-    <meta name="description" content="专注于人工智能领域的思考。分享技术笔记、科研心得，以及读博路上对生活与世界的观察。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="智源之思">
-<meta property="og:url" content="https://buptzyz.github.io/index.html">
-<meta property="og:site_name" content="智源之思">
-<meta property="og:description" content="专注于人工智能领域的思考。分享技术笔记、科研心得，以及读博路上对生活与世界的观察。">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:author" content="zgca&amp;ruc zyz">
-<meta property="article:tag" content="zyz, 博士生, 人工智能, 计算机科学与技术, 深度学习, 算法, 科研, 技术博客">
-<meta name="twitter:card" content="summary_large_image">
-  
-  
-  
-  <title>智源之思</title>
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
+  <meta name="theme-color" content="#12384c">
+  <meta name="author" content="Yuzheng Zhang">
+  <meta name="keywords" content="Yuzheng Zhang, 张宇峥, BUPT, RUC, ZGCA, LLM, Multimodal, Knowledge-Augmented AI">
+  <meta name="description" content="张宇峥的个人学术主页，聚焦大语言模型、多模态推理与知识增强方向的学习、研究与写作。">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="张宇峥 | Academic Homepage">
+  <meta property="og:url" content="https://buptzyz.github.io/index.html">
+  <meta property="og:site_name" content="Yuzheng Zhang">
+  <meta property="og:description" content="张宇峥的个人学术主页，聚焦大语言模型、多模态推理与知识增强方向的学习、研究与写作。">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:image" content="https://buptzyz.github.io/img/home_banner.jpg">
+  <meta property="article:author" content="Yuzheng Zhang">
+  <meta property="article:tag" content="LLM, Multimodal, Knowledge-Augmented AI, Academic Homepage">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://buptzyz.github.io/img/home_banner.jpg">
 
+  <title>张宇峥 | Academic Homepage</title>
 
+  <link rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
+  <!-- Do not modify the link that theme dependent icons -->
+  <link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+  <link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
 
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
+  <link rel="stylesheet" href="/css/main.css" />
 
   <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
-  
-
-
-
+  <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    Fluid.ctx = Object.assign({}, Fluid.ctx);
     var CONFIG = {"hostname":"buptzyz.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":66,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
-      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith("1") || dntVal.startsWith("yes") || dntVal.startsWith("on"));
     }
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
-  
+  <script src="/js/utils.js"></script>
+  <script src="/js/color-schema.js"></script>
 
+  <meta name="generator" content="Hexo 8.0.0">
+</head>
 
-  
-<meta name="generator" content="Hexo 8.0.0"></head>
-
-
-<body>
-  
-
+<body class="academic-home">
   <header>
-    
+    <div class="header-inner" style="height: 100vh;">
+      <nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+        <div class="container">
+          <a class="navbar-brand" href="/">
+            <strong>YUZHENG ZHANG</strong>
+          </a>
 
-<div class="header-inner" style="height: 100vh;">
-  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>智源之思</strong>
-    </a>
+          <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+                  data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                  aria-label="Toggle navigation">
+            <div class="animated-icon"><span></span><span></span><span></span></div>
+          </button>
 
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/" target="_self">
-                <i class="iconfont icon-home-fill"></i>
-                <span>首页</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/" target="_self">
-                <i class="iconfont icon-archive-fill"></i>
-                <span>归档</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/" target="_self">
-                <i class="iconfont icon-category-fill"></i>
-                <span>分类</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/" target="_self">
-                <i class="iconfont icon-tags-fill"></i>
-                <span>标签</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/" target="_self">
-                <i class="iconfont icon-user-fill"></i>
-                <span>关于</span>
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              <i class="iconfont icon-search"></i>
-            </a>
-          </li>
-          
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
-              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
-            </a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
-
-  
-
-<div id="banner" class="banner" parallax=true
-     style="background: url('/img/home_banner.jpg') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          
-            <span id="subtitle" data-typed-text="一个AI博士生的[练级]之路"></span>
-          
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto text-center">
+              <li class="nav-item">
+                <a class="nav-link" href="/" target="_self">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>首页</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/archives/" target="_self">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>归档</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/categories/" target="_self">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/tags/" target="_self">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>标签</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/about/" target="_self">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </a>
+              </li>
+              <li class="nav-item" id="search-btn">
+                <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+                  <i class="iconfont icon-search"></i>
+                </a>
+              </li>
+              <li class="nav-item" id="color-toggle-btn">
+                <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+                  <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
+      </nav>
 
-        
+      <div id="banner" class="banner" parallax="true"
+           style="background: url('/img/home_banner.jpg') no-repeat center center; background-size: cover;">
+        <div class="full-bg-img">
+          <div class="mask flex-center">
+            <div class="banner-text academic-hero">
+              <div class="hero-kicker">Academic Homepage</div>
+              <h1 class="hero-name">张宇峥 <span>/ Yuzheng Zhang</span></h1>
+              <p class="hero-role">BUPT Undergraduate · Incoming Ph.D. at RUC × ZGCA</p>
+              <p class="hero-summary">
+                聚焦让大模型更懂世界、更可信赖的知识增强与多模态推理问题。
+              </p>
+              <div class="hero-keywords">
+                <span>Large Language Models</span>
+                <span>Multimodal Reasoning</span>
+                <span>Knowledge-Augmented AI</span>
+              </div>
+              <div class="hero-actions">
+                <a class="hero-action primary" href="/about/">About</a>
+                <a class="hero-action secondary" href="#selected-work">Selected Work</a>
+                <a class="hero-action ghost" href="https://github.com/buptzyz" target="_blank" rel="noopener noreferrer">GitHub</a>
+              </div>
+              <div class="hero-meta-grid">
+                <div class="hero-meta-card">
+                  <span class="hero-meta-label">Current</span>
+                  <strong>BUPT · B.Eng. Candidate</strong>
+                </div>
+                <div class="hero-meta-card">
+                  <span class="hero-meta-label">Next</span>
+                  <strong>RUC + ZGCA · Incoming Ph.D.</strong>
+                </div>
+                <div class="hero-meta-card">
+                  <span class="hero-meta-label">Focus</span>
+                  <strong>LLM, Multimodal, Knowledge</strong>
+                </div>
+              </div>
+            </div>
+
+            <a class="scroll-down-bar" href="#overview" aria-label="Scroll Down">
+              <i class="iconfont icon-arrowdown"></i>
+            </a>
+          </div>
+        </div>
       </div>
-
-      
-        <div class="scroll-down-bar">
-          <i class="iconfont icon-arrowdown"></i>
-        </div>
-      
     </div>
-  </div>
-</div>
-
-</div>
-
   </header>
 
   <main>
-    
-      <div class="container nopadding-x-md">
-        <div id="board"
-          style="margin-top: 0">
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
+    <div class="container nopadding-x-md">
+      <div id="board">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-xl-10 m-auto">
+              <div class="academic-homepage">
+                <section class="home-section" id="overview">
+                  <div class="section-heading">
+                    <p class="section-kicker">Academic Snapshot</p>
+                    <h2>从本科阶段的积累，走向多模态与知识增强研究</h2>
+                    <p class="section-intro">
+                      目前就读于北京邮电大学物联网工程专业，即将前往中国人民大学信息学院与北京中关村学院联培攻读博士学位。
+                      我把本科阶段视为搭建知识体系、培养科研兴趣与研究方法的起点。
+                    </p>
+                  </div>
+                  <div class="row align-items-stretch">
+                    <div class="col-lg-7 mb-4 mb-lg-0">
+                      <article class="home-card narrative-card">
+                        <p>
+                          本科期间，我在多模态知识图谱、遥感场景理解与知识增强推理问题上持续积累经验，逐步形成了对
+                          “如何让模型在复杂世界中进行更可靠推理”的长期兴趣。
+                        </p>
+                        <p>
+                          未来，我希望在 ZGCA &amp; RUC 的联培博士阶段继续围绕大语言模型、多模态理解与结构化知识融合展开研究，
+                          关注模型能力提升、知识组织方式与幻觉抑制之间的关系。
+                        </p>
+                      </article>
+                    </div>
+                    <div class="col-lg-5">
+                      <aside class="home-card snapshot-panel">
+                        <div class="snapshot-row">
+                          <span class="snapshot-label">Academic Stage</span>
+                          <strong>本科收束阶段 / 博士起步阶段</strong>
+                        </div>
+                        <div class="snapshot-row">
+                          <span class="snapshot-label">Research Goal</span>
+                          <strong>让 LLM 更懂世界，也更可信赖</strong>
+                        </div>
+                        <div class="snapshot-row">
+                          <span class="snapshot-label">Undergraduate Rank</span>
+                          <strong>9 / 182 · Top 5%</strong>
+                        </div>
+                        <div class="snapshot-row">
+                          <span class="snapshot-label">GPA / Score</span>
+                          <strong>90.57 / 100</strong>
+                        </div>
+                        <div class="snapshot-row">
+                          <span class="snapshot-label">Programming</span>
+                          <strong>CCF CSP 270 分 · 前 7.2%</strong>
+                        </div>
+                      </aside>
+                    </div>
+                  </div>
+                </section>
 
+                <section class="home-section" id="research">
+                  <div class="section-heading">
+                    <p class="section-kicker">Research Interests</p>
+                    <h2>当前持续关注的三个研究方向</h2>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 col-xl-4 mb-4">
+                      <article class="home-card interest-card">
+                        <div class="interest-index">01</div>
+                        <h3>LLM &amp; Reliable Reasoning</h3>
+                        <p>
+                          关注如何利用外部知识、检索与结构化约束提升大语言模型的推理质量，并减少知识缺失或幻觉带来的不稳定输出。
+                        </p>
+                      </article>
+                    </div>
+                    <div class="col-md-6 col-xl-4 mb-4">
+                      <article class="home-card interest-card">
+                        <div class="interest-index">02</div>
+                        <h3>Multimodal Understanding</h3>
+                        <p>
+                          从卫星常识对话与多源遥感场景建模出发，探索视觉、文本与世界知识如何协同表征，从而支撑更复杂的理解任务。
+                        </p>
+                      </article>
+                    </div>
+                    <div class="col-md-6 col-xl-4 mb-4">
+                      <article class="home-card interest-card">
+                        <div class="interest-index">03</div>
+                        <h3>Knowledge-Augmented AI</h3>
+                        <p>
+                          围绕检索增强、知识路径扩展与多跳推理设计方法，让模型不仅能调用知识，更能在跨模态场景中组织和使用知识。
+                        </p>
+                      </article>
+                    </div>
+                  </div>
+                </section>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2025/09/30/Math-Test/" target="_self">
-          Math Test
-        </a>
-      </h2>
+                <section class="home-section" id="education">
+                  <div class="section-heading">
+                    <p class="section-kicker">Education &amp; Background</p>
+                    <h2>教育轨迹与阶段性学术概览</h2>
+                  </div>
+                  <div class="row align-items-stretch">
+                    <div class="col-lg-7 mb-4 mb-lg-0">
+                      <div class="home-card timeline-card">
+                        <div class="timeline-item">
+                          <span class="timeline-year">2026 - ?</span>
+                          <div class="timeline-body">
+                            <h3>中国人民大学 · Renmin University of China</h3>
+                            <p>信息学院，计算机科学与技术，直博生（Incoming Ph.D. Student）</p>
+                            <p>联培方向：北京中关村学院 × 中国人民大学</p>
+                          </div>
+                        </div>
+                        <div class="timeline-item">
+                          <span class="timeline-year">2022 - 2026</span>
+                          <div class="timeline-body">
+                            <h3>北京邮电大学 · BUPT</h3>
+                            <p>物联网工程，工学学士（B.Eng.）</p>
+                            <p>本科阶段重点积累研究能力、算法基础与跨模态问题意识。</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-5">
+                      <div class="home-card profile-highlights">
+                        <h3>Undergraduate Highlights</h3>
+                        <ul class="highlight-list">
+                          <li>IJCAI 2025 录用论文 1 篇（四作）</li>
+                          <li>ACMMM 2025 Oral 录用论文 1 篇（三作）</li>
+                          <li>中国国际大学生创新大赛省一等奖</li>
+                          <li>MCM/ICM Honorable Mention</li>
+                          <li>全国大学生数学竞赛三等奖</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </section>
 
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2025/09/30/Math-Test/" target="_self">
-        <div>
-          这是一个数学公式测试页面。 行内公式 这是一个行内公式的例子：\(E = mc^2\)。它应该被嵌入在文本中。 块级公式 这是一个块级公式的例子，它应该单独居中显示： \[ \sum_{i=1}^{n} i = \frac{n(n+1)}{2} \] 另一个复杂的例子： \[ \frac{\partial u}{\partial t} = h^2 \left( \frac{\
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2025-09-30 11:55" pubdate>
-              2025-09-30
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2025/09/27/%E9%BC%A0%E9%BC%A0%E7%9A%84%E4%BF%9D%E7%A0%94%E5%A5%87%E5%B9%BB%E4%B9%8B%E6%97%85/" target="_self">
-          鼠鼠的保研奇幻之旅
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2025/09/27/%E9%BC%A0%E9%BC%A0%E7%9A%84%E4%BF%9D%E7%A0%94%E5%A5%87%E5%B9%BB%E4%B9%8B%E6%97%85/" target="_self">
-        <div>
-          
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2025-09-27 18:23" pubdate>
-              2025-09-27
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/" class="category-chain-item">日常生活</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E9%98%B6%E6%AE%B5%E6%80%A7%E6%80%BB%E7%BB%93/">#阶段性总结</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-
-
-
-
+                <section class="home-section" id="selected-work">
+                  <div class="section-heading">
+                    <p class="section-kicker">Selected Work</p>
+                    <h2>代表成果与公开写作入口</h2>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-6 mb-4">
+                      <a class="home-card work-card publication-card" href="/about/" target="_self">
+                        <span class="work-type">Publication</span>
+                        <h3>Multimodal Knowledge Retrieval-Augmented Iterative Alignment for Satellite Commonsense Conversation</h3>
+                        <p>
+                          面向卫星常识对话场景，结合多模态知识检索与迭代式对齐机制，探索更稳健的跨模态推理方式。
+                        </p>
+                        <div class="work-meta">
+                          <span>IJCAI 2025</span>
+                          <span>四作 · 已录用</span>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                      <a class="home-card work-card publication-card" href="/about/" target="_self">
+                        <span class="work-type">Publication</span>
+                        <h3>Meta-Knowledge Path Augmentation for Multi-Hop Reasoning on Satellite Commonsense Multi-Modal Knowledge Graphs</h3>
+                        <p>
+                          通过元知识路径扩展多跳推理过程，增强多模态知识图谱在复杂场景理解中的可解释性与推理深度。
+                        </p>
+                        <div class="work-meta">
+                          <span>ACMMM 2025</span>
+                          <span>三作 · Oral</span>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 col-lg-4 mb-4">
+                      <a class="home-card note-card" href="/2025/09/27/%E9%BC%A0%E9%BC%A0%E7%9A%84%E4%BF%9D%E7%A0%94%E5%A5%87%E5%B9%BB%E4%B9%8B%E6%97%85/" target="_self">
+                        <span class="work-type">Writing</span>
+                        <h3>鼠鼠的保研奇幻之旅</h3>
+                        <p>记录阶段性经历与个人判断，保留更具叙事感的成长切面。</p>
+                      </a>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-4">
+                      <a class="home-card note-card" href="/archives/" target="_self">
+                        <span class="work-type">Archive</span>
+                        <h3>Browse All Posts</h3>
+                        <p>查看全部文章归档，继续进入博客与随笔部分。</p>
+                      </a>
+                    </div>
+                    <div class="col-md-12 col-lg-4 mb-4">
+                      <a class="home-card note-card emphasis" href="https://github.com/buptzyz" target="_blank" rel="noopener noreferrer">
+                        <span class="work-type">Code &amp; Contact</span>
+                        <h3>GitHub / buptzyz</h3>
+                        <p>通过公开代码仓库了解更多项目实践，也作为当前主页的默认公开联系入口。</p>
+                      </a>
+                    </div>
+                  </div>
+                </section>
               </div>
             </div>
           </div>
         </div>
       </div>
-    
+    </div>
 
-    
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
+    <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
 
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+         aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header text-center">
+            <h4 class="modal-title w-100 font-weight-bold">站内搜索</h4>
+            <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body mx-3">
+            <div class="md-form mb-5">
+              <input type="text" id="local-search-input" class="form-control validate">
+              <label data-error="x" data-success="v" for="local-search-input">输入关键词</label>
+            </div>
+            <div class="list-group" id="local-search-result"></div>
+          </div>
         </div>
-        <div class="list-group" id="local-search-result"></div>
       </div>
     </div>
-  </div>
-</div>
-
-    
-
-    
   </main>
 
   <footer>
-    <div class="footer-inner">
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    <div class="footer-inner academic-footer">
+      <div class="footer-content">
+        个人学术主页，记录研究兴趣、阶段性成果与公开写作。
+      </div>
+      <div class="footer-content footer-links">
+        <a href="/about/" target="_self">About</a>
+        <a href="/archives/" target="_self">Archives</a>
+        <a href="/tags/" target="_self">Tags</a>
+        <a href="https://github.com/buptzyz" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+      <div class="footer-content">
+        © 2026 Yuzheng Zhang
+      </div>
     </div>
-  
-  
-  
-</div>
-
   </footer>
 
-  <!-- Scripts -->
-  
-  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+  <script src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js"></script>
+  <link rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
 
   <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
+    NProgress.configure({"showSpinner": false, "trickleSpeed": 100});
+    NProgress.start();
+    window.addEventListener("load", function() {
       NProgress.done();
-    })
+    });
   </script>
 
+  <script src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js"></script>
+  <script src="/js/events.js"></script>
+  <script src="/js/plugins.js"></script>
+  <script src="/js/img-lazyload.js"></script>
+  <script src="/js/local-search.js"></script>
 
-<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
-
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
-
-
-
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
-
-
-
-
-  <script  src="/js/local-search.js" ></script>
-
-
-
-
-
-<!-- 主题的启动项，将它保持在最底部 -->
-<!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
-
-
-  
+  <!-- the boot of the theme, keep it at the bottom -->
+  <script src="/js/boot.js"></script>
 
   <noscript>
-    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+    <div class="noscript-warning">建议在启用 JavaScript 的环境下浏览，以获得完整交互体验。</div>
   </noscript>
 </body>
 </html>
